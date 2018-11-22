@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include partials/head %>
+    </head>
+    <body class="container">
+        <div class="page-header">
+            <h1>Fitness App</h1>
+        </div>
+
+        <% include partials/menu %>
+
+        <div class="container center-div">
+            <div class="jumbotron">
+                <form action="/registration" method="post">
+                    <div class="form-group">
+                        <label for="email">Email<sup>*</sup></label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required/>
+                    </div>    
+                    <div class="form-group">
+                        <label for="password">Password<sup>*</sup></label>
+                        <input type="password" class="form-control" id="password" name="password" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="re-password">Re-Password<sup>*</sup></label>
+                        <input type="password" class="form-control" id="re-password" name="re-password" required/>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Sign Up"/>
+                    </div>
+                </form>                  
+            </div>          
+        </div>
+    </body>
+</html>

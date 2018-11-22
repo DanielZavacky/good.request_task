@@ -1,0 +1,25 @@
+.center-div {
+    display: inline;
+}
+
+.tablePag {
+    padding-top: 64.5px;
+}
+
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+
+textarea {
+    resize: none;
+}
+
+tr.clickable:hover {
+    cursor: pointer;
+}

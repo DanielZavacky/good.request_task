@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" 
+            aria-expanded="false" aria-controls="myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                       
+            </button>
+            <a class="navbar-brand">FITNESS APP</a>
+        </div>
+        <div class="navbar-collapse collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <% if(page == 'Dashboard') { %>
+                    <li id="dashboard"><a href="/dashboard">DASHBOARD</a></li>
+                <% }%>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <% if(page == 'Dashboard') { %>
+                    <li><a href="/logout">LOG OUT</a></li>
+                <% } else { %>
+                    <li id="signIn"><a href="/login">SIGN IN</a></li>
+                    <li id="signUp"><a href="/registration">SIGN UP</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

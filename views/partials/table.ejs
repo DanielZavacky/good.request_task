@@ -1,0 +1,13 @@
+<% for(var i = 0; i < activitiesData.length; i++) { %>
+    <tr class="clickable" data-id="<%= activitiesData[i].id %>">
+        <th scope="row"><%= (i + activityNO + 1) %></th>
+        <td id="type"><%= activitiesData[i].type %></td>
+        <td id="dateTime">
+        <% { 
+            var date = activitiesData[i].date_time + ''; %>
+            <%=(date.substr(8, 2) + ' ' + date.substr(4, 3) + ' ' + date.substr(11, 4) + ' ' +
+                date.substr(16, 2) + ':' + date.substr(19, 2) + ':' + date.substr(22, 2)) %>
+        <% } %>
+        </td>
+    </tr>
+<% } %>

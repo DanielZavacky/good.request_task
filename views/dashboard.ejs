@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include partials/head %>
+        <script src="../../js/ajaxCalls.js"></script>
+    </head>
+    <body class="container">
+        <div class="page-header">
+            <h1>Fitness App</h1>
+        </div>
+
+        <% include partials/menu %>
+
+        <div class="container-fluid row center-div">
+
+                
+
+            <div class="col-sm-6 colo">
+                <div class="form-group typeFilter align-items-center">
+                    <label for="type" class="col-sm-4 typeFilterLabel">Activity type filter<sup>*</sup></label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="typeFilter" name="typeFilter">
+                            <option selected>All types</option>
+                            <% activityTypes.forEach(function(type) { %>
+                                <option><%= type %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                </div>
+
+                <% if(activitiesData.length > 0) { %>
+                    <div class="tablePag">
+                        <table class="table table-hover border" id="activityTable">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Activity type</th>
+                                    <th scope="col">DateTime</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% include partials/table %>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="">
+                        <nav>
+                            <ul class="pagination justify-content-center">
+                                <% include partials/paginator %>
+                            </ul>
+                        </nav>
+                    </div>
+                <% } else { %>
+                    <div class="alert alert-primary" role="alert">
+                        <p>Nemáte uložené žiadne záznamy</p>
+                    </div>
+                <% } %>
+            </div>
+            <div class="col-sm-6 colo"> 
+                <div class="jumbotron">
+                    <form id="activityForm" enctype="application/json">
+                        <input type="hidden" id="activityId" name="activityId" value=""/>
+                        <div class="form-group">
+                            <label for="type">Activity type<sup>*</sup></label>
+                            <select class="form-control" id="type" name="type" form="activityForm" required>
+                                <option disabled selected>Select type</option>
+                                <% activityTypes.forEach(function(type) { %>
+                                    <option><%= type %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea rows="3" cols="56" class="form-control" id="description" name="description" form="activityForm"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Duration<sup>*</sup></label>
+                            <input type="time" class="form-control" id="duration" name="duration" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateTime">DateTime<sup>*</sup></label>
+                            <input type="datetime-local" class="form-control" id="dateTime" name="dateTime" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="place">Place</label>
+                            <input type="text" class="form-control" id="place" name="place"/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="btnAdd" type="button">Add</button>
+                            <button class="btn btn-primary" id="btnUpdate" type="button">Update</button>
+                            <button class="btn btn-primary" id="btnDelete" type="button">Delete</button>
+                        </div>
+                    </form>                  
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
